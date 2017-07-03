@@ -10,26 +10,26 @@ use Illuminate\Database\Eloquent\Model;
  * @property Question $question
  * @property Test $test
  */
-class TestQuestions extends Model
+class Test_Questions extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'TestQuestions';
+    protected $table = 'Test_Questions';
 
     /**
      * @var array
      */
-    protected $fillable = ['QuestionId'];
+    protected $fillable = ['question_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function question()
     {
-        return $this->belongsTo('App\Question', 'QuestionId', 'Id');
+        return $this->belongsTo('App\Question', 'question_id', 'id');
     }
 
     /**
@@ -37,6 +37,6 @@ class TestQuestions extends Model
      */
     public function test()
     {
-        return $this->belongsTo('App\Test', 'TestId', 'Id');
+        return $this->belongsTo('App\Test', 'test_id', 'id');
     }
 }

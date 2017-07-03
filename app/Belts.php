@@ -13,7 +13,7 @@ class Belts extends Model
     /**
      * @var array
      */
-    protected $fillable = ['Name'];
+    protected $fillable = ['name'];
     
     public function users()
     {

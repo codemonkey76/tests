@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Answers extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,22 @@ class Answers extends Migration
      */
     public function up()
     {
-        Schema::create('Answers', function (Blueprint $table) {
-            $table->increments('Id');
-            $table->integer('QuestionId')->unsigned();
-            $table->string('Answer');
+        Schema::create('answers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('question_id')->unsigned();
+            $table->string('answer');
 
-            $table->foreign('QuestionId')
-                ->references('Id')
-                ->on('Questions')
+            $table->foreign('question_id')
+                ->references('id')
+                ->on('questions')
                 ->onDelete('cascade');
             $table->timestamps();
         });
 
-        Schema::table('Questions', function($table) {
-        $table->foreign('AnswerId')
-            ->references('Id')
-            ->on('Answers')
+        Schema::table('questions', function($table) {
+        $table->foreign('answer_id')
+            ->references('id')
+            ->on('answers')
             ->OnDelete('set null');
         });
     }
@@ -41,7 +41,7 @@ class Answers extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('Answers');
+        Schema::dropIfExists('answers');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

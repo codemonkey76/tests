@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TestQuestions extends Migration
+class CreateTestQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class TestQuestions extends Migration
      */
     public function up()
     {
-        Schema::create('TestQuestions', function (Blueprint $table) {
-            $table->integer('TestId')->unsigned();
-            $table->integer('QuestionId')->unsigned();
+        Schema::create('test_questions', function (Blueprint $table) {
+            $table->integer('test_id')->unsigned();
+            $table->integer('question_id')->unsigned();
 
-            $table->primary(['TestId','QuestionId']);
+            $table->primary(['test_id','question_id']);
             
-            $table->foreign('QuestionId')
-                ->references('Id')
-                ->on('Questions')
+            $table->foreign('question_id')
+                ->references('id')
+                ->on('questions')
                 ->onDelete('cascade');
             
-            $table->foreign('TestId')
-                ->references('Id')
-                ->on('Tests')
+            $table->foreign('test_id')
+                ->references('id')
+                ->on('tests')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -40,7 +40,7 @@ class TestQuestions extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('TestQuestions');
+        Schema::dropIfExists('test_questions');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

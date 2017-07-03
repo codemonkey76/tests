@@ -15,13 +15,13 @@ class Tests extends Model
     /**
      * @var array
      */
-    protected $fillable = ['BeltID', 'Name'];
+    protected $fillable = ['belt_id', 'name'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function belt()
     {
-        return $this->belongsTo('App\Belts', 'BeltID', 'Id');
+        return $this->belongsTo('App\Belts', 'belt_id', 'id');
     }
 }

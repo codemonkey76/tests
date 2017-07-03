@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'BeltId', 'password',
+        'name', 'email', 'belt_id', 'password',
     ];
 
     /**
@@ -30,6 +30,6 @@ class User extends Authenticatable
     
     public function belt()
     {
-        return $this->belongsTo('App\Belts', 'BeltId','Id');
+        return $this->belongsTo('App\Belts', 'belt_id','id');
     }
 }

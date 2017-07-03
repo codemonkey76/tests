@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('BeltId')
+            $table->integer('belt_id')
                 ->unsigned()
                 ->nullable();
             $table->string('password');

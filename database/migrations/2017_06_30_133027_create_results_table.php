@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Results extends Migration
+class CreateResultsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,30 +13,30 @@ class Results extends Migration
      */
     public function up()
     {
-        Schema::create('Results', function (Blueprint $table) {
-            $table->integer('TestId')->unsigned();
-            $table->integer('UserId')->unsigned();
-            $table->integer('QuestionId')->unsigned();
-            $table->integer('AnswerId')->unsigned();
+        Schema::create('results', function (Blueprint $table) {
+            $table->integer('test_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->integer('question_id')->unsigned();
+            $table->integer('answer_id')->unsigned();
 
-            $table->foreign('TestId')
-                ->references('Id')
-                ->on('Tests')
+            $table->foreign('test_id')
+                ->references('id')
+                ->on('tests')
                 ->onDelete('cascade');
 
-            $table->foreign('UserId')
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->foreign('QuestionId')
-                ->references('Id')
-                ->on('Questions')
+            $table->foreign('question_id')
+                ->references('id')
+                ->on('questions')
                 ->onDelete('cascade');
 
-            $table->foreign('AnswerId')
-                ->references('Id')
-                ->on('Answers')
+            $table->foreign('answer_id')
+                ->references('id')
+                ->on('answers')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -50,7 +50,7 @@ class Results extends Migration
     public function down()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('Results');
+        Schema::dropIfExists('results');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
