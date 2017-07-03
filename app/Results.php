@@ -19,14 +19,14 @@ class Results extends Model
     /**
      * @var array
      */
-    protected $fillable = ['TestId', 'UserId', 'QuestionId', 'AnswerId'];
+    protected $fillable = ['test_id', 'user_id', 'question_id', 'answer_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function answer()
     {
-        return $this->belongsTo('App\Answer', 'AnswerId', 'Id');
+        return $this->belongsTo('App\Answer', 'answer_id', 'id');
     }
 
     /**
@@ -34,7 +34,7 @@ class Results extends Model
      */
     public function question()
     {
-        return $this->belongsTo('App\Question', 'QuestionId', 'Id');
+        return $this->belongsTo('App\Question', 'question_id', 'Id');
     }
 
     /**
@@ -42,7 +42,7 @@ class Results extends Model
      */
     public function test()
     {
-        return $this->belongsTo('App\Test', 'TestId', 'Id');
+        return $this->belongsTo('App\Test', 'test_id', 'Id');
     }
 
     /**
@@ -50,6 +50,6 @@ class Results extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User', 'UserId');
+        return $this->belongsTo('App\User', 'user_id');
     }
 }

@@ -17,13 +17,13 @@ class Answers extends Model
     /**
      * @var array
      */
-    protected $fillable = ['QuestionId', 'Answer', 'created_at', 'updated_at'];
+    protected $fillable = ['question_id', 'answer', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function question()
     {
-        return $this->belongsTo('App\Question', 'QuestionId', 'Id');
+        return $this->belongsTo('App\Question', 'question_id', 'id');
     }
 }

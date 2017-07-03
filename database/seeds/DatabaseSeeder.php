@@ -5,7 +5,7 @@ use App\Tests;
 use App\Answers;
 use App\Results;
 use App\Questions;
-use App\TestQuestions;
+use App\Test_Questions;
 use Illuminate\Database\Seeder;
 use Illuminate\Foundation\Auth\User;
 
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'shane@bjja.com.au',
             'name' => 'Shane Poppleton',
             'password' => Hash::make('e4f85967'),
-            'BeltId' => 21
+            'belt_id' => 25
         ]);
 
         // Belts::delete();
@@ -101,8 +101,8 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i<count($belts);$i++)
         {
                 $belt = new Belts;
-                $belt->Name = $belts[$i];
-                $belt->Picture = $pictures[$i];
+                $belt->name = $belts[$i];
+                $belt->picture = $pictures[$i];
                 $belt->save();
         }
         
@@ -110,122 +110,122 @@ class DatabaseSeeder extends Seeder
         Questions::truncate();
         
         $question = new Questions;
-        $question->Question = 'Who is the head of Fight Club Jiu-Jitsu Australia';
-        $question->AnswerId = 1;
+        $question->question = 'Who is the head of Fight Club Jiu-Jitsu Australia';
+        $question->answer_id = 1;
         $question->save();
 
         $question = new Questions;
-        $question->Question = 'What country did BJJ originate from';
-        $question->AnswerId = 6;
+        $question->question = 'What country did BJJ originate from';
+        $question->answer_id = 6;
         $question->save();
 
         $question = new Questions;
-        $question->Question = 'What submission becomes legal at Blue Belt';
-        $question->AnswerId = 11;
+        $question->question = 'What submission becomes legal at Blue Belt';
+        $question->answer_id = 11;
         $question->save();
 
         // Answers::delete();
         Answers::truncate();
 
         $answer = new Answers;
-        $answer->QuestionId = 1;
+        $answer->question_id = 1;
         $answer->Answer = 'Daniel Lima';
         $answer->save();
 
         $answer = new Answers;
-        $answer->QuestionId = 1;
-        $answer->Answer = 'Shane Poppeton';
+        $answer->question_id = 1;
+        $answer->answer = 'Shane Poppeton';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 1;
-        $answer->Answer = 'Paulo Mauricio Strauch';
+        $answer->question_id = 1;
+        $answer->answer = 'Paulo Mauricio Strauch';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 1;
-        $answer->Answer = 'Marcio Bittencourt';
+        $answer->question_id = 1;
+        $answer->answer = 'Marcio Bittencourt';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 1;
-        $answer->Answer = 'Geordie Lavers-McBain';
+        $answer->question_id = 1;
+        $answer->answer = 'Geordie Lavers-McBain';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 2;
-        $answer->Answer = 'Brazil';
+        $answer->question_id = 2;
+        $answer->answer = 'Brazil';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 2;
-        $answer->Answer = 'Australia';
+        $answer->question_id = 2;
+        $answer->answer = 'Australia';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 2;
-        $answer->Answer = 'Japan';
+        $answer->question_id = 2;
+        $answer->answer = 'Japan';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 2;
-        $answer->Answer = 'Korea';
+        $answer->question_id = 2;
+        $answer->answer = 'Korea';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 2;
-        $answer->Answer = 'Portugal';
+        $answer->question_id = 2;
+        $answer->answer = 'Portugal';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 3;
-        $answer->Answer = 'Wrist Lock';
+        $answer->question_id = 3;
+        $answer->answer = 'Wrist Lock';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 3;
-        $answer->Answer = 'Kneebar';
+        $answer->question_id = 3;
+        $answer->answer = 'Kneebar';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 3;
-        $answer->Answer = 'Armbar';
+        $answer->question_id = 3;
+        $answer->answer = 'Armbar';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 3;
-        $answer->Answer = 'Toe Hold';
+        $answer->question_id = 3;
+        $answer->answer = 'Toe Hold';
         $answer->save();
         
         $answer = new Answers;
-        $answer->QuestionId = 3;
-        $answer->Answer = 'Omoplata';
+        $answer->question_id = 3;
+        $answer->answer = 'Omoplata';
         $answer->save();
         
         // Tests::delete();
         Tests::truncate();
 
         $test = new Tests;
-        $test->BeltId = 1;
-        $test->Name = 'Test for 1st Stripe White Belt';
+        $test->belt_id = 1;
+        $test->name = 'Test for 1st Stripe White Belt';
         $test->save();
 
         $test = new Tests;
-        $test->BeltId = 1;
-        $test->Name = 'Test for 1st Stripe White Belt - Version 2';
+        $test->belt_id = 1;
+        $test->name = 'Test for 1st Stripe White Belt - Version 2';
         $test->save();
 
         // TestQuestions::delete();
-        TestQuestions::truncate();
+        Test_Questions::truncate();
 
         $testIds = array(1, 1, 1, 2, 2, 2);
         $questionIds = array(1, 2, 3, 3, 2, 1);
 
         for ($i=0; $i<count($testIds);$i++)
         {
-            $testquestion = new TestQuestions;
-            $testquestion->TestId = $testIds[$i];
-            $testquestion->QuestionId = $questionIds[$i];
+            $testquestion = new Test_Questions;
+            $testquestion->test_id = $testIds[$i];
+            $testquestion->question_id = $questionIds[$i];
             $testquestion->save();
         }
 
@@ -233,24 +233,24 @@ class DatabaseSeeder extends Seeder
         Results::truncate();
 
         $results = new Results;
-        $results->TestId = 1;
-        $results->UserId = 1;
-        $results->QuestionId = 1;
-        $results->AnswerId = 1;
+        $results->test_id = 1;
+        $results->user_id = 1;
+        $results->question_id = 1;
+        $results->answer_id = 1;
         $results->save();
 
         $results = new Results;
-        $results->TestId = 1;
-        $results->UserId = 1;
-        $results->QuestionId = 2;
-        $results->AnswerId = 6;
+        $results->test_id = 1;
+        $results->user_id = 1;
+        $results->question_id = 2;
+        $results->answer_id = 6;
         $results->save();
 
         $results = new Results;
-        $results->TestId = 1;
-        $results->UserId = 1;
-        $results->QuestionId = 3;
-        $results->AnswerId = 11;
+        $results->test_id = 1;
+        $results->user_id = 1;
+        $results->question_id = 3;
+        $results->answer_id = 11;
         $results->save();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
