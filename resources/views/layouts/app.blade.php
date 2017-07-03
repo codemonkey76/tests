@@ -47,7 +47,11 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="navbar-brand">
+                            @if (Auth::user()->belt == null)
+                                <button class="btn btn-default btn-sm" onclick="window.location='{{ url("SetRank") }}'">Set Rank</button>
+                            @else
                                 <img src="images/{{ Auth::user()->belt->Picture }}.png" width="150px">
+                            @endif
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

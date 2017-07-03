@@ -14,7 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('SetRank', function() {
+    $belts = App\Belts::all();
+    return view('setRank', compact('belts'));
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
