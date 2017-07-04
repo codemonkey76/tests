@@ -62,7 +62,7 @@
 
                         <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-     <img src="http://placehold.it/350x150">
+     <img src="/images/white.png">
        <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
