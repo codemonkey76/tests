@@ -3,8 +3,8 @@
 @section('content')
     <section class="imageblock switchable feature-large switchable--switch height-100">
         <div class="imageblock__content col-md-6 col-sm-4 pos-right">
-            <div class="background-image-holder" style="max-width: 50%!important;">
-                <img alt="image" src="{{ asset('images/brand/whoselandlogo.jpg') }}">
+            <div class="background-image-holder">
+                <img alt="image" src="{{ asset('images/brand/jitz.jpg') }}">
             </div>
         </div>
         <div class="container pos-vertical-center">
@@ -12,13 +12,12 @@
                 <div class="col-sm-7 col-md-4">
                     <h2 class="type--uppercase">Dashboard Register </h2>
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
 
                         <div class="panel-body">
                             <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                                {{ csrf_field() }}
 
                                 <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
                                     <span class="btn__text">

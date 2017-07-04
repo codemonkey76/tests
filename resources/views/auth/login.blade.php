@@ -5,8 +5,8 @@
     <section class="imageblock switchable feature-large switchable--switch height-100">
 
         <div class="imageblock__content col-md-6 col-sm-4 pos-right">
-            <div class="background-image-holder" style="max-width: 50%!important;">
-                <img alt="image" src="{{ asset('images/') }}">
+            <div class="background-image-holder">
+                <img alt="image" src="{{ asset('images/brand/jitz.jpg') }}">
             </div>
         </div>
 
