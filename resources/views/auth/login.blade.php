@@ -1,14 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+
+    <section class="imageblock switchable feature-large switchable--switch height-100">
+
+        <div class="imageblock__content col-md-6 col-sm-4 pos-right">
+            <div class="background-image-holder" style="max-width: 50%!important;">
+                <img alt="image" src="{{ asset('images/') }}">
+            </div>
+        </div>
+
+        <div class="container pos-vertical-center">
+            <div class="row">
+                <div class="col-sm-7 col-md-4">
+                    <h2 class="type--uppercase">Dashboard Login</h2>
+
+                    <form class="form-horizontal" role="form" method="POST" action="{{ ('#') }}">
                         {{ csrf_field() }}
+
+                        <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
+                            <span class="btn__text">
+                            <i class="socicon-facebook"></i>LOGIN with Facebook
+                            </span>
+                        </a>
+
+                        <a class="btn block btn--icon bg--twitter type--uppercase" href="#">
+                            <span class="btn__text">
+                            <i class="socicon-google"></i>login with GOOGLE
+                            </span>
+                        </a>
+
+                        <hr data-title="OR">
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
@@ -38,31 +60,31 @@
                             </div>
                         </div>
 
+
+
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
+                            <div class="col-md-8 col-md-offset-3 text-center">
+
+                                <div class="row" style="padding-top: 30px">
+                                    <button type="submit" class="btn btn-primary">
+                                        Login
+                                    </button>
+                                </div>
+
+                                <div class="row" style="padding-top: 30px">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        Forgot Your Password?
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
                     </form>
+
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+
 @endsection
+
