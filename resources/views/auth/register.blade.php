@@ -81,6 +81,25 @@
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                     </div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                                            <img src="/images/white.png">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                            <?php
+                                                $belts = App\Belts::all();
+                                            ?>
+                                            
+                                            @foreach ($belts as $belt)
+                                                <li role="presentation">
+                                                    <a role="menuitem" tabindex="-1" href="#">
+                                                        <img src="/images/{{ $belt->picture }}.png">
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -90,11 +109,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-
                     </form>
-
                 </div>
             </div>
         </div>
