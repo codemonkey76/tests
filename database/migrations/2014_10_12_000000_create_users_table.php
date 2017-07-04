@@ -21,8 +21,17 @@ class CreateUsersTable extends Migration
                 ->unsigned()
                 ->nullable();
             $table->string('password');
+            $table->boolean('active');
+            $table->integer('instructor')
+                ->unsigned()
+                ->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('instructor')
+                ->references('id')
+                ->on('users')
+                ->cascade('set null');
         });
     }
 
