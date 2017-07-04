@@ -66,11 +66,12 @@
        <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 1</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 2</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 3</a></li>
-      <li role="presentation" class="divider"></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 4</a></li>
+      <?php
+      $belts = App\Belts::all();
+      ?>
+      @foreach ($belts as $belt)
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><img src="/images/{{ $belt->picture }}.png"></a></li>
+      @endforeach
     </ul>
   </div>
 
