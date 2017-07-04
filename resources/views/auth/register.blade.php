@@ -60,6 +60,20 @@
                             </div>
                         </div>
 
+                        <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+     <img src="http://placehold.it/350x150">
+       <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 1</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 2</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 3</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 4</a></li>
+    </ul>
+  </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
