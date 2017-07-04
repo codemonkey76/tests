@@ -81,34 +81,65 @@
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                     </div>
-                                    <div class="dropdown">
-                                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                                            <img src="/images/white.png">
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                            <?php
-                                                $belts = App\Belts::all();
-                                            ?>
-                                            
-                                            @foreach ($belts as $belt)
-                                                <li role="presentation">
-                                                    <a role="menuitem" tabindex="-1" href="#">
-                                                        <img src="/images/{{ $belt->picture }}.png">
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
                                 </div>
-
                                 <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            Register
-                                        </button>
+                                    <label for="instrcutor" class="col-md-4 control-label">Instructor</label>
+
+                                    <div class="col-md-6">
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Instructor
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                              <?php
+                                                $users = App\User::where('belt_id','>',24)->get();
+                                              ?>
+                                              @foreach ($users as $user)
+                                              <li role="presentation">
+                                                <a role="menuitem" tabindex="-1" href="#">
+                                                  {{ $user->name }}
+                                                </a>
+                                              </li>
+                                              @endforeach
+                                            </ul>
+                                          </div>
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="form-group">
+                                        <label for="rank" class="col-md-4 control-label">Rank</label>
+
+                                        <div class="col-md-6">
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                                                    <img src="/images/white.png">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                    <?php
+                                                        $belts = App\Belts::all();
+                                                    ?>
+                                            
+                                                    @foreach ($belts as $belt)
+                                                        <li role="presentation">
+                                                            <a role="menuitem" tabindex="-1" href="#">
+                                                                <img src="/images/{{ $belt->picture }}.png">
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                Register
+                                            </button>
+                                        </div>
+                                    </div>
                     </form>
                 </div>
             </div>
