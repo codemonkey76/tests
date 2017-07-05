@@ -105,18 +105,36 @@
                                             @endforeach
                                         </ul>
 
-                                    </div>
-                                </div>
-
-                                @include('auth.partials.belt_select')
-
                                 <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            Register
-                                        </button>
+                                    <label for="instrcutor" class="col-md-4 control-label">Instructor</label>
+
+                                    <div class="col-md-6">
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Instructor
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                              <?php
+                                                $users = App\User::where('belt_id','>',24)->get();
+                                              ?>
+                                              @foreach ($users as $user)
+                                              <li role="presentation">
+                                                <a role="menuitem" tabindex="-1" href="#">
+                                                  {{ $user->name }}
+                                                </a>
+                                              </li>
+                                              @endforeach
+                                            </ul>
+                                          </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                Register
+                                            </button>
+                                        </div>
+                                    </div>
                     </form>
                 </div>
             </div>
