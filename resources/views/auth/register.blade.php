@@ -81,16 +81,21 @@
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                     </div>
-                                    <div class="dropdown">
+                                </div>
+
+                                <div class="form-group text-center hidden">
+                                    <div class="dropdown text-center">
+
                                         <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                                            <img src="/images/white.png">
+                                            <img src="{{ asset('/images/white.png')}}">
                                             <span class="caret"></span>
                                         </button>
+
                                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                                             <?php
-                                                $belts = App\Belts::all();
+                                            $belts = App\Belts::all();
                                             ?>
-                                            
+
                                             @foreach ($belts as $belt)
                                                 <li role="presentation">
                                                     <a role="menuitem" tabindex="-1" href="#">
@@ -99,8 +104,11 @@
                                                 </li>
                                             @endforeach
                                         </ul>
+
                                     </div>
                                 </div>
+
+                                @include('auth.partials.belt_select')
 
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
@@ -116,3 +124,15 @@
     </section>
 @endsection
 
+
+@section('scripts')
+
+    <script>
+        $('#mydropdown').ddslick({
+            onSelected: function(selectedData){
+                //callback function: do something with selectedData;
+            }
+        });
+    </script>
+
+@endsection

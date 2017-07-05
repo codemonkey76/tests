@@ -97,5 +97,9 @@
 <script src="{{ asset('js/spectragram.min.js') }}"></script>
 <script src="{{ asset('js/smooth-scroll.min.js') }}"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
+
+@yield('scripts')
+
 </body>
 </html>
