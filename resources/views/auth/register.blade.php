@@ -12,12 +12,12 @@
                 <div class="col-sm-7 col-md-4">
                     <h2 class="type--uppercase">Dashboard Register </h2>
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <div class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
 
-                        <div class="panel-body">
-                            <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                        <form class="panel-body">
+                            <div class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
 
                                 <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
                                     <span class="btn__text">
@@ -83,43 +83,44 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group text-center hidden">
-                                    <div class="dropdown text-center">
-
-                                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                                            <img src="{{ asset('/images/white.png')}}">
-                                            <span class="caret"></span>
-                                        </button>
-
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                            <?php
-                                            $belts = App\Belts::all();
-                                            ?>
-
-                                            @foreach ($belts as $belt)
-                                                <li role="presentation">
-                                                    <a role="menuitem" tabindex="-1" href="#">
-                                                        <img src="/images/{{ $belt->picture }}.png">
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-
-                                    </div>
-                                </div>
-
                                 @include('auth.partials.belt_select')
 
                                 <div class="form-group">
-                                    <div class="col-md-6 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            Register
-                                        </button>
+                                    <label for="instrcutor" class="col-md-4 control-label">Instructor</label>
+
+                                    <div class="col-md-6">
+                                        <div class="dropdown">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Instructor
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                              <?php
+                                                $users = App\User::where('belt_id','>',24)->get();
+                                              ?>
+                                              @foreach ($users as $user)
+                                              <li role="presentation">
+                                                <a role="menuitem" tabindex="-1" href="#">
+                                                  {{ $user->name }}
+                                                </a>
+                                              </li>
+                                              @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                Register
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                        </form>
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 @endsection
