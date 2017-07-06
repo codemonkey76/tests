@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'shane@bjja.com.au',
             'name' => 'Shane Poppleton',
             'password' => Hash::make('e4f85967'),
-            'belt_id' => 25
+            'belt_id' => 25,
+            'active' => true,
+            'can_promote' => true
         ]);
 
         // Belts::delete();

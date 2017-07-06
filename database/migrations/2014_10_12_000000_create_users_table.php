@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
                 ->nullable();
             $table->string('password');
             $table->boolean('active');
+            $table->boolean('can_promote');
             $table->integer('instructor')
                 ->unsigned()
                 ->nullable();
