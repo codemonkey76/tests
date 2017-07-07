@@ -11,17 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+
+/
+/tests
+/tests/{test}
+
+/admin/userImport
+
+/login
+
+
+ */
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('SetRank', function() {
-    $belts = App\Belts::all();
-    return view('setRank', compact('belts'));
-});
-
-
+// Route::get('/', function() {
+//  return view('welcome');
+// });
+Route::get('/', 'HomeController@index');
+Route::get('/tests', 'TestsController@index');
