@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'belt_id', 'password',
+        'name', 'email', 'belt_id', 'password', 'active', 'can_promote', 'instructor', 
     ];
 
     /**
@@ -31,5 +31,10 @@ class User extends Authenticatable
     public function belt()
     {
         return $this->belongsTo('App\Belts', 'belt_id','id');
+    }
+
+    public function scopeInstructors($query)
+    {
+        return $query->where("can_promote",true);
     }
 }

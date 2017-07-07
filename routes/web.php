@@ -11,19 +11,6 @@
 |
 */
 
-/*
-
-/
-/tests
-/tests/{test}
-
-/admin/userImport
-
-/login
-
-
- */
-
 Auth::routes();
 // Route::get('/', function() {
 //  return view('welcome');
