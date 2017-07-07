@@ -95,7 +95,7 @@
                                             </button>
                                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                                               <?php
-                                                $users = App\User::where('can_promote','=',true)->get();
+                                                $users = App\User::instructors()->get();
                                               ?>
                                               @foreach ($users as $user)
                                               <li role="presentation">
