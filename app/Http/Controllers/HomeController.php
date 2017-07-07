@@ -5,31 +5,27 @@ namespace App\Http\Controllers;
 use App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
+    public function test()
+    {
+        return view('home');
+    }
     public function index()
     {
         if (Auth::check())
             return view('home');
         else
-            return view('auth.login');
+            return Redirect::route('login');
+        // return view('auth.login');
     }
 
 
