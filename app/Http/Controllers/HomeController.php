@@ -19,7 +19,11 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::check())
-            return view('home');
+        {
+            $tests = Auth::User()->assignedTests()->get();
+            // return dd($tests);
+            return view('home', compact('tests'));
+        }
         else
             return Redirect::route('login');
     }

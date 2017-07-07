@@ -30,7 +30,12 @@ class User extends Authenticatable
     
     public function belt()
     {
-        return $this->belongsTo('App\Belts', 'belt_id','id');
+        return $this->belongsTo('App\Belt', 'belt_id','id');
+    }
+
+    public function assignedTests()
+    {
+        return $this->hasMany('App\AssignedTest');
     }
     public static function studentsOf($id)
     {

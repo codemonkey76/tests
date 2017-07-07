@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $AnswerId
  * @property Answer $answer
  */
-class Questions extends Model
+class Question extends Model
 {
     /**
      * @var array

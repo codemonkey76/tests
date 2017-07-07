@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Question $question
  */
-class Answers extends Model
+class Answer extends Model
 {
     /**
      * @var array

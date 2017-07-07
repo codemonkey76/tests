@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Question $question
  * @property Test $test
  */
-class Test_Questions extends Model
+class Test_Question extends Model
 {
     /**
      * The table associated with the model.
