@@ -11,19 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::post('/send', 'EmailController@send');
 Auth::routes();
-Route::get('/admin/userImport', function () {
-    return view ('admin.userImport');
-});
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('SetRank', function() {
-    $belts = App\Belts::all();
-    return view('setRank', compact('belts'));
-});
-
-
+// Route::get('/', function() {
+//  return view('welcome');
+// });
+Route::get('/', 'HomeController@index');
+Route::get('/tests', 'TestsController@index');
