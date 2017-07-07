@@ -13,4 +13,5 @@
 
 Auth::routes();
 Route::get('/','HomeController@index');
+Route::get('/admin/userImport', 'AdminController@userImport');
 Route::get('/tests', 'TestsController@index');
