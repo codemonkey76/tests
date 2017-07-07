@@ -32,7 +32,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Belts', 'belt_id','id');
     }
-
+    public static function studentsOf($id)
+    {
+        return static::where('instructor',$id);
+    }
     public function scopeInstructors($query)
     {
         return $query->where("can_promote",true);

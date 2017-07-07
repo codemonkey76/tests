@@ -12,10 +12,5 @@
 */
 
 Auth::routes();
-// Route::get('/home', 'HomeController@test');
-// Route::get('/', function() {
-//     return view('welcome');
-// });
-
 Route::get('/','HomeController@index');
 Route::get('/tests', 'TestsController@index');
