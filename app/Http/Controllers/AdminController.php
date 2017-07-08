@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function userImport()
     {
-        use App\User;
         $output = "<p>Importing Users</p>";
         $csv = array_map("str_getcsv", file("test.csv",FILE_SKIP_EMPTY_LINES));
         $keys = array_shift($csv);
@@ -53,7 +54,7 @@ class AdminController extends Controller
                 continue;
             }
 
-            $users = App\User::where('email','=',$i['Email'])->get();
+            $users = User::where('email','=',$i['Email'])->get();
 
             if ($users->count()!=0) // User with this email address already exists.
             { 
@@ -82,7 +83,7 @@ class AdminController extends Controller
             else
                 $belt_id = $belt[0]->id;
 
-            App\User::create([
+            User::create([
             'email' => "{$i['Email']}",
             'name' => "{$i['First']} {$i['Last']}",
             'password' => Hash::make($password),
