@@ -12,8 +12,7 @@
 */
 
 Auth::routes();
-// Route::get('/', function() {
-//  return view('welcome');
-// });
-Route::get('/', 'HomeController@index');
+Route::get('/','HomeController@index');
+Route::get('/admin/userImport', 'AdminController@userImport');
 Route::get('/tests', 'TestsController@index');
+Route::post('/AssignTest', 'HomeController@assignTest');

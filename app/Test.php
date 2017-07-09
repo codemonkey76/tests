@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Name
  * @property Belt $belt
  */
-class Tests extends Model
+class Test extends Model
 {
     /**
      * @var array

@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Test $test
  * @property User $user
  */
-class Results extends Model
+class Result extends Model
 {
     /**
      * @var array

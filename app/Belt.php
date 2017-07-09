@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $Id
  * @property string $Name
  */
-class Belts extends Model
+class Belt extends Model
 {
     /**
      * @var array

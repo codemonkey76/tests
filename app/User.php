@@ -30,9 +30,27 @@ class User extends Authenticatable
     
     public function belt()
     {
-        return $this->belongsTo('App\Belts', 'belt_id','id');
+        return $this->belongsTo('App\Belt', 'belt_id','id');
     }
-
+    public function assignTest($test_id)
+    {
+        $at = new AssignedTest;
+        $at->user_id = $this->id;
+        $at->test_id = $test_id;
+        $at->save();
+    }
+    public function assignedTests()
+    {
+        return $this->hasMany('App\AssignedTest');
+    }
+    public function availableTests()
+    {
+        return Test::where('belt_id',$this->belt_id);
+    }
+    public static function studentsOf($id)
+    {
+        return static::where('instructor',$id);
+    }
     public function scopeInstructors($query)
     {
         return $query->where("can_promote",true);
