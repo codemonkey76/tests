@@ -32,10 +32,20 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Belt', 'belt_id','id');
     }
-
+    public function assignTest($test_id)
+    {
+        $at = new AssignedTest;
+        $at->user_id = $this->id;
+        $at->test_id = $test_id;
+        $at->save();
+    }
     public function assignedTests()
     {
         return $this->hasMany('App\AssignedTest');
+    }
+    public function availableTests()
+    {
+        return Test::where('belt_id',$this->belt_id);
     }
     public static function studentsOf($id)
     {

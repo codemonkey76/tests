@@ -20,6 +20,7 @@
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 </head>
 <body>
 <div id="app">
@@ -98,7 +99,8 @@
 <script src="{{ asset('js/smooth-scroll.min.js') }}"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
 <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
-
+<!-- DataTables -->
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 @yield('scripts')
 
 </body>

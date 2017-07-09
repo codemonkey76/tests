@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Belt;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -73,7 +75,7 @@ class AdminController extends Controller
             $output = $output . "<p>Creating account for {$i['First']} {$i['Last']}.</p>";
             $password = str_random(8);
             $rank = trim($i['Rank']);
-            $belt = App\Belts::where('Picture','=',"$belts[$rank]")->get();
+            $belt = Belt::where('Picture','=',"$belts[$rank]")->get();
         
             if ($belt->count()==0) //Could not find rank, assigning white belt
             {
@@ -92,13 +94,13 @@ class AdminController extends Controller
             'can_promote' => false,
             'instructor' => Auth::User()->id]);
 
-            $content = "User account {$i['First']} {$i['Last']} has been created. Their password is {$password} and their email address is {$i['Email']}.";
-                
-            Mail::send('emails.send', ['title' => 'New User Created', 'content' => $content], function ($message) {
-                    $message->from('shane@bjja.com.au', 'Shane Poppleton');
-                    $message->to('shane@bjja.com.au');
-            });
-            return view('admin.userImport', compact('output'));
+            $content = "<p>User account {$i['First']} {$i['Last']} has been created. Their password is {$password} and their email address is {$i['Email']}.</p>";
+            $output = $output . $content;
+            // Mail::send('emails.send', ['title' => 'New User Created', 'content' => $content], function ($message) {
+            //         $message->from('shane@bjja.com.au', 'Shane Poppleton');
+            //         $message->to('shane@bjja.com.au');
+            // });
         }
+        return view('admin.userImport', compact('output'));
     }
 }
